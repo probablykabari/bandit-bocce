@@ -1,0 +1,20 @@
+{
+  "name": "@probablykabari/bandit-bocce",
+  "author": "Kabari Hendrick",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {},
+  "dependencies": {
+    "turbo": "^1.10.14",
+    "typescript": "^5.2.2"
+  },
+  "resolutions": {
+    "typescript": "~5.2.2"
+  },
+  "devDependencies": {
+    "supabase": "^1.99.5"
+  }
+}
