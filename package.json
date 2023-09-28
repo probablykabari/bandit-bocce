@@ -15,6 +15,7 @@
     "typescript": "~5.2.2"
   },
   "devDependencies": {
+    "eas-cli": "^5.3.0",
     "supabase": "^1.99.5"
   }
 }

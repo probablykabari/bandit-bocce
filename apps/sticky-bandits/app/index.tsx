@@ -9,7 +9,7 @@ export default function SignIn() {
         onPress={() => {
           // Navigate after signing in. You may want to tweak this to ensure sign-in is
           // successful before navigating.
-          router.replace('/')
+          router.replace('/home')
         }}>
         Sign In
       </Button>

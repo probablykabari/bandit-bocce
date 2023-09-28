@@ -1,13 +1,13 @@
 import { ThemeProvider, DarkTheme, DefaultTheme } from '@react-navigation/native'
 import { Slot, SplashScreen } from 'expo-router'
 import { useColorScheme } from 'react-native'
-import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { RecoilRoot } from 'recoil'
-import { TamaguiProvider } from 'tamagui'
+import { TamaguiProvider, Theme } from 'tamagui'
 
 import tamaguiConfig from '../tamagui.config'
 import { useEffect } from 'react'
 import { useFonts } from 'expo-font'
+import NavigationThemeProvider from 'core/NavigationThemeProvider'
 
 SplashScreen.preventAutoHideAsync()
 
@@ -26,15 +26,15 @@ const RootLayout = () => {
   if (!fontsLoaded) return null
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <RecoilRoot>
-        <TamaguiProvider config={tamaguiConfig}>
-          <ThemeProvider value={navTheme}>
+    <RecoilRoot>
+      <TamaguiProvider config={tamaguiConfig} defaultTheme='light'>
+        <Theme name={`${scheme}_green`}>
+          <NavigationThemeProvider>
             <Slot />
-          </ThemeProvider>
-        </TamaguiProvider>
-      </RecoilRoot>
-    </GestureHandlerRootView>
+          </NavigationThemeProvider>
+        </Theme>
+      </TamaguiProvider>
+    </RecoilRoot>
   )
 }
 

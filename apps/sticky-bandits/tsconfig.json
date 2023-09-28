@@ -1,7 +1,14 @@
 {
   "extends": "expo/tsconfig.base",
-  "include": ["."],
-  "exclude": ["node_modules", "dist"],
+  "include": [
+    ".",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
   "compilerOptions": {
     "baseUrl": "./src"
   }
