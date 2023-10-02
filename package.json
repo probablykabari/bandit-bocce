@@ -2,17 +2,21 @@
   "name": "@probablykabari/bandit-bocce",
   "author": "Kabari Hendrick",
   "private": true,
+  "engines": {
+    "node": "18.x"
+  },
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
   "scripts": {},
   "dependencies": {
+    "expo": "^49.0.13",
     "turbo": "^1.10.14",
     "typescript": "^5.2.2"
   },
   "resolutions": {
-    "typescript": "~5.2.2"
+    "typescript": "^5.2.2"
   },
   "devDependencies": {
     "eas-cli": "^5.3.0",

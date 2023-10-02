@@ -14,10 +14,10 @@
     "@mobily/ts-belt": "^3.13.1",
     "@react-native-async-storage/async-storage": "^1.19.3",
     "@react-navigation/drawer": "^6.6.4",
-    "@tamagui/animations-moti": "^1.73.0",
-    "@tamagui/config": "^1.73.0",
-    "@tamagui/font-inter": "^1.73.0",
-    "@tamagui/lucide-icons": "^1.73.0",
+    "@tamagui/animations-moti": "^1.74.8",
+    "@tamagui/config": "^1.74.8",
+    "@tamagui/font-inter": "^1.74.8",
+    "@tamagui/lucide-icons": "^1.74.8",
     "date-fns": "^2.30.0",
     "expo": "~49.0.12",
     "expo-constants": "~14.4.2",
@@ -33,7 +33,7 @@
     "react-native-screens": "~3.22.0",
     "react-native-svg": "13.9.0",
     "recoil": "^0.7.7",
-    "tamagui": "^1.73.0",
+    "tamagui": "^1.74.8",
     "wonka": "^6.3.4"
   },
   "devDependencies": {
