@@ -1,42 +1,30 @@
-import { Plus } from "@tamagui/lucide-icons"
+import { Plus, PlusCircle } from "@tamagui/lucide-icons"
+import { useFocusEffect, useRouter } from "expo-router"
 import { useState } from "react"
 import { Pressable } from "react-native"
-import { Button, Popover, YGroup, YStack, Text } from "tamagui"
+import { FlatList, ScrollView } from "react-native-gesture-handler"
+import { useRecoilState } from "recoil"
+import { SubRequestsState } from "state/sub-requests"
+import { Button, Popover, YGroup, YStack, Text, H1, ListItem, useStyle, H3, XStack, SizableText } from "tamagui"
 
 const FindASubScreen = () => {
-  const [popoverOpen, setPopoverOpen] = useState<boolean>()
+  const [subRequests] = useRecoilState(SubRequestsState)
+  const subListStyle = useStyle({ minHeight: '$16' })
+  const router = useRouter()
 
-  console.debug("popover state", popoverOpen)
   return (
     <YStack flex={1}>
-      <Popover placement="bottom" allowFlip size="$5">
-        <Popover.Trigger asChild>
-          <Button icon={Plus} size={'$2'} scaleIcon={2} circular />
-        </Popover.Trigger>
-        <Popover.Adapt platform="native">
-          <Popover.Sheet modal dismissOnSnapToBottom>
-            <Popover.Sheet.Overlay />
-            <Popover.Sheet.Frame>
-              <Popover.Adapt.Contents />
-            </Popover.Sheet.Frame>
-          </Popover.Sheet>
-        </Popover.Adapt>
-
-        <Popover.Content
-          elevate
-          animation={['quick', { opacity: { overshootClamping: true } }]}
-          enterStyle={{ y: -10, opacity: 0 }}
-          exitStyle={{ y: -10, opacity: 0 }}>
-          <Popover.Arrow />
-          <YGroup>
-            <YGroup.Item>
-              <Pressable>
-                <Text>Stuff</Text>
-              </Pressable>
-            </YGroup.Item>
-          </YGroup>
-        </Popover.Content>
-      </Popover>
+      <H3 fontSize={'$6'}>Active Sub Requests</H3>
+      <XStack>
+        <Button icon={PlusCircle} theme={'blue_alt1'} onPress={() => router.push('/(app)/findSubsStack/create-request')}>Post a request for subs</Button>
+        <Button icon={PlusCircle} theme={'blue_alt1'} onPress={() => router.push('/(app)/findSubsStack/1234')}>Show</Button>
+      </XStack>
+      <FlatList
+        data={subRequests}
+        renderItem={({ item }) => (
+          <ListItem title={`${item.number_needed} needed for ${item.team_id}`} subTitle={`${item.times.join(', ')}`} />
+        )}
+      />
     </YStack>
   )
 }

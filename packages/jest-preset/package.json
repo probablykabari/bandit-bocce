@@ -1,0 +1,11 @@
+{
+  "name": "jest-preset-local",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {},
+  "peerDependencies": {
+    "react-native-reanimated": "*"
+  }
+}

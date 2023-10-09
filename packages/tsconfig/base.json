@@ -18,7 +18,8 @@
     "noUncheckedIndexedAccess": true,
     "importsNotUsedAsValues": "error",
     "noImplicitAny": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "verbatimModuleSyntax": true
   },
 	"exclude": ["node_modules"]
 }

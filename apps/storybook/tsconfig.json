@@ -1,6 +1,7 @@
 {
-  "extends": "expo/tsconfig.base",
+  "extends": ["expo/tsconfig.base", "tsconfig/react-native-library"],
   "compilerOptions": {
     "strict": true
-  }
+  },
+  "exclude": ["node_modules"]
 }

@@ -1,6 +1,5 @@
-import { ThemeProvider, DarkTheme, DefaultTheme } from '@react-navigation/native'
 import { Slot, SplashScreen } from 'expo-router'
-import { useColorScheme } from 'react-native'
+import { LogBox, useColorScheme } from 'react-native'
 import { RecoilRoot } from 'recoil'
 import { TamaguiProvider, Theme } from 'tamagui'
 
@@ -10,10 +9,10 @@ import { useFonts } from 'expo-font'
 import NavigationThemeProvider from 'core/NavigationThemeProvider'
 
 SplashScreen.preventAutoHideAsync()
+LogBox.ignoreLogs(['Please use `router.redirect` instead'])
 
 const RootLayout = () => {
   const scheme = useColorScheme()
-  const navTheme = scheme === 'dark' ? DarkTheme : DefaultTheme
   const [fontsLoaded] = useFonts({
     Inter: require('@tamagui/font-inter/otf/Inter-Medium.otf'),
     InterBold: require('@tamagui/font-inter/otf/Inter-Bold.otf')
@@ -28,7 +27,7 @@ const RootLayout = () => {
   return (
     <RecoilRoot>
       <TamaguiProvider config={tamaguiConfig} defaultTheme='light'>
-        <Theme name={`${scheme}_green`}>
+        <Theme name={`${scheme ?? "light"}_green`}>
           <NavigationThemeProvider>
             <Slot />
           </NavigationThemeProvider>
